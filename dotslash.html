@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+  </style>
+  <title>Notes and To-Do List</title>
+</head>
+<body>
+  <div class="container">
+    <div>
+      <h1>Notes</h1>
+      <textarea id="noteInput" placeholder="Type your note here..."></textarea>
+      <button onclick="addNote()">Add Note</button>
+    </div>
+
+    <div>
+      <h1>To-Do List</h1>
+      <ul id="todoList"></ul>
+      <input type="text" id="taskInput" placeholder="Add a to-do task...">
+      <button onclick="addTask()">Add Task</button>
+    </div>
+  </div>
+
+  <script>
+    function addNote() {
+      const noteInput = document.getElementById('noteInput');
+      const noteValue = noteInput.value.trim();
+
+      if (noteValue !== '') {
+        const noteList = document.getElementById('todoList');
+        const listItem = document.createElement('li');
+        listItem.innerText = noteValue;
+        noteList.appendChild(listItem);
+        noteInput.value = '';
+      }
+    }
+
+    function addTask() {
+      const taskInput = document.getElementById('taskInput');
+      const taskValue = taskInput.value.trim();
+
+      if (taskValue !== '') {
+        const todoList = document.getElementById('todoList');
+        const taskItem = document.createElement('li');
+        taskItem.innerText = taskValue;
+        todoList.appendChild(taskItem);
+        taskInput.value = '';
+      }
+    }
+  </script>
+</body>
+</html>
